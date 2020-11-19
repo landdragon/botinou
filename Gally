@@ -55,7 +55,23 @@ async def on_message(message):
 		else:
 			await message.channel.send ("Erreur, Ecrivez D suivi de l'attaque, du taux critique et des dégats critique")
 	
-	if ListElementInMessage[0] == ""
+	if ListElementInMessage[0] == "Liste":
+		embed = discord.Embed(title="Liste des commandes :", color=0xffffff)
+		embed.set_thumbnail(url = "")
+		embed.add_field(name="Menu :", value="Menu \nSommaire \nInfo \nHelp \npas fini",inline=False)
+		embed.add_field(name="Lexique :", value="Lexique",inline=False)
+		embed.add_field(name="Trinket :", value="Trink \nTrinkPv \nTrinkAtk \n TrinkDc",inline=False)
+		embed.add_field(name="Gemmes :", value="On met quoi dans Gemmes ?",inline=False)
+		embed.add_field(name="Améliorations :", value="Hp+ Hp% Def+ Atk+ Atk% Dc",inline=True)
+		embed.add_field(name="Astromons :", value="DarkVadehors",inline=False)
+		embed.add_field(name="Calculs :", value="Epv \nEpvGem \nDégats \nDmg Aggr PV \nDmg Aggr Def \nDmg Aggr Rec \nHeal",inline=False)
+		embed.add_field(name="Titi :", value="Titi# (# étant un chiffre ou un nombre)",inline=False)
+		embed.add_field(name="Lead :", value="Lead \nLdTcDown \nLdTcUp \nLdDefUp \nLdDefDown",inline=False)
+		embed.add_field(name="Attaques :", value="Competences \nAdrenaline",inline=False)
+		embed.add_field(name="Top Liste :", value="En image ce serai pas mal \nHeal \npvp \nTiti \nbois \nEtc",inline=False)
+		embed.add_field(name="Boss :", value="Colosses \nTitans \nGolems \nDragon \n WB",inline=False)
+		embed.add_field(name="Liste de Commandes :", value="Liste",inline=False)
+		await message.channel.send(embed=embed)
 	
 @client.event
 async def on_ready():
