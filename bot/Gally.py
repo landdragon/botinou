@@ -1,7 +1,8 @@
 import discord
-#from discord.ext import commands
+from discord.ext import commands
+import os
 
-TOKEN = 'SeCrEt'
+TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 
 client = discord.Client()
 
