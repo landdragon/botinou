@@ -13,7 +13,7 @@ async def on_message(message):
 	ListElementInMessage = message.content.split()
 	
 	if ListElementInMessage[0] == "Hello":
-		await message.channel.send ("salut amis humains")
+		await message.channel.send ("salut ami humain")
 
 	if ListElementInMessage[0] == "Epv":
 		if len(ListElementInMessage) == 3 and ListElementInMessage[1].isnumeric() and ListElementInMessage[2].isnumeric():
