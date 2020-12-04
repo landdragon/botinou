@@ -25,7 +25,7 @@ async def Epv(message, ListElementInMessage):
         await message.channel.send("Erreur, Ecrivez Epv suivi des PV et de la Def. (ex : Epv 20000 2000)")
 
 Functions = {
-    "Epv2", Epv
+    "Epv2": Epv
 }
 
 
