@@ -12,9 +12,9 @@ client = discord.Client()
 
 
 @client.event
-async def on_message(self: discord.Client, message: discord.Message):
+async def on_message(message: discord.Message):
     # don't respond to ourselves
-    if message.author == self.user:
+    if message.author == client.user:
         return
     ListElementInMessage: list[str] = message.content.split()
 
