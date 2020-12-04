@@ -6,6 +6,7 @@ TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 HEROKU_RELEASE_VERSION = os.getenv("HEROKU_RELEASE_VERSION")
 HEROKU_RELEASE_CREATED_AT = os.getenv("HEROKU_RELEASE_CREATED_AT")
 HEROKU_SLUG_DESCRIPTION = os.getenv("HEROKU_SLUG_DESCRIPTION")
+IsInNotProd = os.getenv("IsInNotProd")
 
 client = discord.Client()
 
@@ -14,15 +15,15 @@ client = discord.Client()
 async def on_message(message):
     if message.author == client.user:
         return
-    ListElementInMessage = message.content.split()
+    ListElementInMessage: list[str] = message.content.split()
 
     if ListElementInMessage[0] == "Hello":
         await message.channel.send("salut ami humain")
 
-    if ListElementInMessage[0] == "Version":
+    if ListElementInMessage[0].lower() == "version":
         await message.channel.send("ma version est "+HEROKU_RELEASE_VERSION+".\nj'ai été créer à " + HEROKU_RELEASE_CREATED_AT)
 
-    if ListElementInMessage[0] == "Git":
+    if ListElementInMessage[0].lower() == "git":
         await message.channel.send("Ma version git est "+HEROKU_SLUG_DESCRIPTION)
 
     if ListElementInMessage[0] == "Epv":
@@ -107,5 +108,8 @@ async def on_ready():
     print(client.user.name)
     print("[ON]")
     print('- - - - - - - -')
+    if IsInNotProd == "true":
+        await client.get_all_channels().send("hello")
+
 
 client.run(TOKEN)
