@@ -113,7 +113,7 @@ async def on_ready():
         print("[test]")
         for Channel in client.get_all_channels():
             print(Channel.type)
-            if Channel.type == 'Text':
+            if Channel.type.lower() == 'text':
                 Channel.send("hello")
 
 
