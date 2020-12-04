@@ -25,7 +25,7 @@ async def Epv(message: discord.Message, ListElementInMessage: list[str]):
         await message.channel.send("Erreur, Ecrivez Epv suivi des PV et de la Def. (ex : Epv 20000 2000)")
 
 Functions: dict[str, function] = {
-    "Epv", Epv
+    "Epv2", Epv
 }
 
 
