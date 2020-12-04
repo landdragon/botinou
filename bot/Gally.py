@@ -112,7 +112,7 @@ async def on_ready():
     if IsInNotProd == "true":
         for Channel in client.get_all_channels():
             if Channel.type == discord.ChannelType.text:
-                Channel.send("hello")
+                await Channel.send("hello")
 
 
 client.run(TOKEN)
