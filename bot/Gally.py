@@ -11,13 +11,33 @@ IsInNotProd = os.getenv("IsInNotProd")
 client = discord.Client()
 
 
+async def Epv(message: discord.Message, ListElementInMessage: list[str]):
+    if len(ListElementInMessage) == 3 and ListElementInMessage[1].isnumeric() and ListElementInMessage[2].isnumeric():
+        a = int(ListElementInMessage[1])
+        b = int(ListElementInMessage[2])
+        c = round(a/(1-(b/(b+1200))))
+        embed = discord.Embed(title="Epv", color=0xffffff)
+        embed.set_thumbnail(url="")
+        embed.add_field(name="Calculs effectués avec:", value="\nPV : " +
+                        str(a) + "\nDéfense : " + str(b) + "\n\nEpv : " + str(c), inline=False)
+        await message.channel.send(embed=embed)
+    else:
+        await message.channel.send("Erreur, Ecrivez Epv suivi des PV et de la Def. (ex : Epv 20000 2000)")
+
+Functions: dict[str, function] = {
+    "Epv", Epv
+}
+
+
 @client.event
 async def on_message(message: discord.Message):
     # don't respond to ourselves
     if message.author == client.user:
         return
     ListElementInMessage: list[str] = message.content.split()
-
+    if ListElementInMessage[0] in Functions:
+        await Functions[ListElementInMessage[0]](message, ListElementInMessage)
+        return
     if ListElementInMessage[0] == "Hello":
         await message.channel.send("salut ami humain")
 
