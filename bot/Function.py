@@ -1,3 +1,5 @@
+import discord
+
 
 async def Epv(message, ListElementInMessage):
     if len(ListElementInMessage) == 3 and ListElementInMessage[1].isnumeric() and ListElementInMessage[2].isnumeric():
