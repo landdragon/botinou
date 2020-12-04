@@ -11,7 +11,7 @@ IsInNotProd = os.getenv("IsInNotProd")
 client = discord.Client()
 
 
-async def Epv(message, ListElementInMessage: list[str]):
+async def Epv(message, ListElementInMessage):
     if len(ListElementInMessage) == 3 and ListElementInMessage[1].isnumeric() and ListElementInMessage[2].isnumeric():
         a = int(ListElementInMessage[1])
         b = int(ListElementInMessage[2])
