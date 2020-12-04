@@ -112,7 +112,8 @@ async def on_ready():
     if IsInNotProd == "true":
         print("[test]")
         for Channel in client.get_all_channels():
-            Channel.send("hello")
+            if Channel.type == 'Text':
+                Channel.send("hello")
 
 
 client.run(TOKEN)
