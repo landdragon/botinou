@@ -12,8 +12,9 @@ client = discord.Client()
 
 
 @client.event
-async def on_message(message):
-    if message.author == client.user:
+async def on_message(self: discord.Client, message: discord.Message):
+    # don't respond to ourselves
+    if message.author == self.user:
         return
     ListElementInMessage: list[str] = message.content.split()
 
@@ -109,7 +110,9 @@ async def on_ready():
     print("[ON]")
     print('- - - - - - - -')
     if IsInNotProd == "true":
-        await client.get_all_channels().send("hello")
+        print("[test]")
+        for Channel in client.get_all_channels():
+            Channel.send("hello")
 
 
 client.run(TOKEN)
