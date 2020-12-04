@@ -112,6 +112,7 @@ async def on_ready():
     if IsInNotProd == "true":
         print("[test]")
         for Channel in client.get_all_channels():
+            print(Channel.type)
             if Channel.type == 'Text':
                 Channel.send("hello")
 
